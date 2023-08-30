@@ -16,10 +16,12 @@ const App = () => {
         const data = await response.json();
         setMovies(data.Search);
     }
-    
-    useEffect(() => {
-        searchMovies('fast');
-    }, []);
+
+    function returSearchTerm() {
+        if(searchTerm !== '') {
+            searchMovies(searchTerm)
+        }
+    }
 
     return (
         <div className="app">
@@ -27,7 +29,7 @@ const App = () => {
 
             <div className="search">
                 <input placeholder="Search for movies" value={searchTerm} onChange={(e) => {setSearchTerm(e.target.value)}}/>
-                <img src={SearchIcon} alt="search-icon" onClick={() => {searchMovies(searchTerm)}}/>
+                <img src={SearchIcon} alt="search-icon" onClick={() => {returSearchTerm(searchTerm)}}/>
             </div>
 
             <div className="container">
