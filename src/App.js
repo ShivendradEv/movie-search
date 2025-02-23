@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import './App.css';
 import SearchIcon from './search.svg';
 import MovieCard from "./conponent/MovieCard";
@@ -18,7 +18,7 @@ const App = () => {
     }
 
     function returSearchTerm() {
-        if(searchTerm !== '') {
+        if (searchTerm !== '') {
             searchMovies(searchTerm)
         }
     }
@@ -28,8 +28,8 @@ const App = () => {
             <h1>MovieLand</h1>
 
             <div className="search">
-                <input placeholder="Search for movies" value={searchTerm} onChange={(e) => {setSearchTerm(e.target.value)}}/>
-                <img src={SearchIcon} alt="search-icon" onClick={() => {returSearchTerm(searchTerm)}}/>
+                <input placeholder="Search for movies" value={searchTerm} onChange={(e) => { setSearchTerm(e.target.value) }} />
+                <img src={SearchIcon} alt="search-icon" onClick={() => { returSearchTerm(searchTerm) }} />
             </div>
 
             <div className="container">
@@ -37,7 +37,7 @@ const App = () => {
                     movies.length > 0 ? (
                         <div className="container">
                             {movies.map((movie) => (
-                                <MovieCard movie={movie}/>
+                                <MovieCard movie={movie} />
                             ))}
                         </div>
                     ) : (
